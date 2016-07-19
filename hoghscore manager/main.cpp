@@ -4,7 +4,7 @@
 using namespace std;
 
 void menuSelector(int); // prototype  
-
+void showMenu();
 int main() {
 
 	string fname;
@@ -15,12 +15,12 @@ int main() {
 	int Score;
 	int highScore;
 	int lowScore;
-	cout << "Please select a number 1-5:"<<endl;
-	cout << "1 Set Score:" << endl;
-	cout << "2 Show High Score:" << endl;
-	cout << "3 Update User:" << endl;
-	cout << "4 Delete User:" << endl;
-	cout << "5 To Exit:" << endl;
+	
+	 cout << "Please enter your user name:" << endl;
+	 cin >> userName;
+	 cout << "Hi " << userName << endl;
+
+	showMenu();
 	cin >> userInput;
 	menuSelector(userInput);
 
@@ -29,6 +29,19 @@ int main() {
 
 	return 0;
 }
+
+void showMenu() {
+
+	cout << "Please select a number 1-5:"<<endl;
+	cout << "1 Set Score:" << endl;
+	cout << "2 Show High Score:" << endl;
+	cout << "3 Update User:" << endl;
+	cout << "4 Delete User:" << endl;
+	cout << "5 To Exit:" << endl;
+
+}
+
+
 
 
 void menuSelector(int userInput) {
