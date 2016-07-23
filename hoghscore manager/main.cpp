@@ -21,15 +21,16 @@ int main() {
 	cout << "To start things we need some info from you." << endl;
 	cout << "\nPlease enter your first name:";
 	cin >> fname;
-	cout << "\nNow lets have your last name";
+	cout << "\nNow lets have your last name.";
 	cin >> lname;
 	cout << "\nYour age please?";
 	cin >> age;
-	cout << "\nPlease choose a user name:";
+	cout << "\nPlease create a user name:";
 	cin >> userName;
 	fullName = fname + " " + lname;
-	cout << "\nSo your name is " << fullName << " and your age is. " << age << endl;
-	
+	cout << "\nSo your name is " << fullName << " and your age is" << age << ".";
+	cout << "\nYour user name is " << userName << ".";
+	cout << "\n";
 
 
 
@@ -45,12 +46,12 @@ int main() {
 
 void showMenu() {
 
-	cout << "Please select a number 1-5:"<<endl;
-	cout << "1 Set Score:" << endl;
-	cout << "2 Show High Score:" << endl;
-	cout << "3 Update User:" << endl;
-	cout << "4 Delete User:" << endl;
-	cout << "5 To Exit:" << endl;
+	cout << "\nPlease select a number 1-5:" << endl << endl  ;
+	cout << "\n1 Set Score:" << endl;
+	cout << "\n2 Show High Score:" << endl;
+	cout << "\n3 Update User:" << endl;
+	cout << "\n4 Delete User:" << endl;
+	cout << "\n5 To Exit:" << endl;
 
 }
 
