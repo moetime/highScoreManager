@@ -28,7 +28,7 @@ int main() {
 	cout << "\nPlease create a user name:";
 	cin >> userName;
 	fullName = fname + " " + lname;
-	cout << "\nSo your name is " << fullName << " and your age is" << age << ".";
+	cout << "\nSo your name is " << fullName << " and your age is " << age << ".";
 	cout << "\nYour user name is " << userName << ".";
 	cout << "\n";
 
@@ -52,15 +52,9 @@ void showMenu() {
 	cout << "\n3 Update User:" << endl;
 	cout << "\n4 Delete User:" << endl;
 	cout << "\n5 To Exit:" << endl;
-
 }
 
-
-
-
 void menuSelector(int userInput) {
-
-
 	cout  << "Input is "<< userInput<<endl;
 	switch (userInput) {
 	case 1:
@@ -68,19 +62,15 @@ void menuSelector(int userInput) {
 		break;
 	case 2:
 		cout << "Show high score list:";
-
 		break;
 	case 3:
 		cout << "Update user information:";
-
 		break;
 	case 4:
 		cout << "Delete User:";
-
 		break;
 	case 5:
 		cout << "Press 5 to exit:";
-
 		break;
 	}
 }
