@@ -9,16 +9,22 @@ int main() {
 
 	string fname;
 	string lname;
-	string userName;
 	int age;
+	string userName;
 	int userInput;
 	int Score;
 	int highScore;
 	int lowScore;
+	cout << "To start things we need some info from you.";
+	cout << "Please enter your first name:" << endl;
+	cin >> fname;
+	cout << "Now lets have your last name" << endl;
+	cin >> lname;
+	cout << "Your age please?" << endl;
+	cin >> age;
+	cout << "Please choose a user name:" << endl;
+	cout << "So your name is " << fname << lname << "and your age is" << age << endl;
 	
-	 cout << "Please enter your user name:" << endl;
-	 cin >> userName;
-	 cout << "Hi " << userName << endl;
 
 	showMenu();
 	cin >> userInput;
