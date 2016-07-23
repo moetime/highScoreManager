@@ -46,7 +46,7 @@ int main() {
 
 void showMenu() {
 
-	cout << "\nPlease select a number 1-5:" << endl << endl  ;
+	cout << "\nPlease select a number 1-5:" << endl << endl;
 	cout << "\n1 Set Score:" << endl;
 	cout << "\n2 Show High Score:" << endl;
 	cout << "\n3 Update User:" << endl;
@@ -55,7 +55,7 @@ void showMenu() {
 }
 
 void menuSelector(int userInput) {
-	cout  << "Input is "<< userInput<<endl;
+	cout << "Input is " << userInput << endl;
 	switch (userInput) {
 	case 1:
 		cout << "Print high score:";
