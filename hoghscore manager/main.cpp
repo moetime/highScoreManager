@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+
 
 using namespace std;
 
@@ -15,16 +17,21 @@ int main() {
 	int Score;
 	int highScore;
 	int lowScore;
-	cout << "To start things we need some info from you.";
-	cout << "Please enter your first name:" << endl;
+	string fullName;
+	cout << "To start things we need some info from you." << endl;
+	cout << "\nPlease enter your first name:";
 	cin >> fname;
-	cout << "Now lets have your last name" << endl;
+	cout << "\nNow lets have your last name";
 	cin >> lname;
-	cout << "Your age please?" << endl;
+	cout << "\nYour age please?";
 	cin >> age;
-	cout << "Please choose a user name:" << endl;
-	cout << "So your name is " << fname << lname << "and your age is" << age << endl;
+	cout << "\nPlease choose a user name:";
+	cin >> userName;
+	fullName = fname + " " + lname;
+	cout << "\nSo your name is " << fullName << " and your age is. " << age << endl;
 	
+
+
 
 	showMenu();
 	cin >> userInput;
