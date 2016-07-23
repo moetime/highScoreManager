@@ -22,6 +22,9 @@
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileIO.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0848214D-67D7-4895-904E-B2F3FAB6F4F4}</ProjectGuid>
     <RootNamespace>hoghscoremanager</RootNamespace>
