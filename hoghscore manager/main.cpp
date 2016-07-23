@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "FileIO.cpp"
 
 using namespace std;
 
@@ -50,7 +51,9 @@ void menuSelector(int userInput) {
 	cout  << "Input is "<< userInput<<endl;
 	switch (userInput) {
 	case 1:
-		cout << "Print high score:";
+		//cout << "Print high score:";
+		writeFileHighScore();
+		readFileHighScore();
 		break;
 	case 2:
 		cout << "Show high score list:";
