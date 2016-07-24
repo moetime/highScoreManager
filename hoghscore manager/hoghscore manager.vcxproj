@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileIO.h" />
