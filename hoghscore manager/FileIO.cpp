@@ -85,7 +85,7 @@ void writeUserFile()
 }
 
 //read from file and return a string
-string readUserFile()
+void readUserFile()
 {
 	ifstream userFileRead("users.txt");
 	if (userFileRead.is_open())
@@ -94,7 +94,7 @@ string readUserFile()
 		string fileContent;
 		while (userFileRead >> fileContent)
 		{
-			return fileContent;
+			cout << fileContent << endl;
 		}
 		userFileRead.close();
 
@@ -103,5 +103,4 @@ string readUserFile()
 	{
 		cout << "unable to open file";
 	}
-	return false;
 }

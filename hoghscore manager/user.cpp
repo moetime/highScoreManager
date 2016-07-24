@@ -76,13 +76,10 @@ class User
 
 //METHODS
 //login a unique user
-bool login(string *up) {
+bool login(string &up) {
 	
-	//check if the user exists
-	checkUserExist(*up);
-
 	//check if the userName is registered
-	if (!checkUserExist(*up)) {
+	if (!checkUserExist(&up)) {
 
 		cout << "You've failed to login!" << endl;
 
@@ -96,9 +93,9 @@ bool login(string *up) {
 }
 
 //check if the user exists
-bool checkUserExist(string *up) {
+bool checkUserExist(string &up) {
 	//read from the users.txt and store the information
-	string readUserName = readUserFile();
+	
 	
 	//for each of the strings, end at a space
 
@@ -106,7 +103,7 @@ bool checkUserExist(string *up) {
 }
 
 //update the user list
-void updateUserList(string *up) {
+void updateUserList(string &up) {
 	
 	//confirm the user is logged in
 	if () {
@@ -117,13 +114,13 @@ void updateUserList(string *up) {
 	}
 	else {
 		//log the user in
-		login(up);
+		login(&up);
 	}
 
 }
 
 //option for user to delete info
-void deleteUser(string *up) {
+void deleteUser(string &up) {
 
 	//confirm the user is logged in
 	if () {
