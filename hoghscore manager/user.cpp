@@ -7,78 +7,126 @@ using namespace std;
 class User
 {
 	//Structure for the users full name
-	struct UserName {
+	struct userName {
 		
 		private:
-			string	firstName, 
-					lastName;
+			string	userName;
 		
-		//set the first & last names for the user
 		public:
+			//set
+			void setUserName(string newUserName) {
+				userName = newUserName;
+			}
 
-			void setFirstName(string newFirstName) {
-				firstName = newFirstName;
-			};
-
-			void setLastName(string newLastName) {
-				lastName = newLastName;
-			};
-
-			string getFullName() {
-				return firstName + " " + lastName;
+			//get
+			string getUserName() {
+				return userName;
 			}
 	};
 
 	//Structure for user information (age)
-	struct UserInfo {
+	struct userInfo {
 		private:
+			string	firstName,
+					lastName;
 			int age, 
 				highscore;
 
-		//set the age for the user
+		//set the age, first & last names for the user
 		public:
+			//set
+			void setFirstName(string newFirstName) {
+				firstName = newFirstName;	//firstName
+			};
 
-			void setAge(int newAge) {
+			void setLastName(string newLastName) {
+				lastName = newLastName;		//lastName
+			};
+
+			void setAge(int newAge) {		//age
 				age = newAge;
 			};
 
-			int getAge() {
+			void setHighscore(int newHighScore) {
+				highscore = newHighScore;	//highscore
+			};
+
+			//get
+			string getFullName() {			//fullname
+				return firstName + " " + lastName;
+			}
+
+			int getAge() {					//age
 				return age;
 			};
 
-			void setHighscore(int newHighScore) {
-				highscore = newHighScore;
-			};
-
-			int getHighScore() {
+			int getHighScore() {			//highscore
 				return highscore;
 			}
+
 	};		
 		
 	public:
 		//constructor
-		User(UserName, UserInfo) {};
+		User(userName, userInfo) {};
 
-	//prototypes
+	//class method prototypes
 	bool login();
 	bool checkUserExist();
 	void updateUserList();
 	void deleteUser();
 };
 
+//METHODS
+//login a unique user
 bool User::login() {
-
+		
+	//check if the userName is registered
+	if (!userName::getUserName) {
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
+//check if the user exists
 bool User::checkUserExist() {
+	//read from the users.txt and store the information
 
+	//
 }
 
+//update the user list
 void User::updateUserList() {
+	
+	//confirm the user is logged in
+	if (!User::login) {
+
+
+
+
+	}
+	else {
+		//log the user in
+		User::login;
+	}
 
 }
 
+//option for user to delete info
 void User::deleteUser() {
 
+	//confirm the user is logged in
+	if (!User::login) {
+
+
+
+
+	}
+	else {
+		//log the user in
+		User::login;
+	}
 }
 
