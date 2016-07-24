@@ -2,6 +2,9 @@
 #include <string>
 #include <sstream>
 
+// custom headers
+#include "user.h"
+#include "FileIO.h"
 
 using namespace std;
 
@@ -11,14 +14,29 @@ int main() {
 
 	string fname;
 	string lname;
-	int age;
 	string userName;
+	string *up;
+	
+	int age;
 	int userInput;
 	int Score;
 	int highScore;
 	int lowScore;
-	string fullName;
-	cout << "To start things we need some info from you." << endl;
+
+
+	//confirm a login by the user
+	cout << "Please login" << endl;
+
+	cin >> userName;
+	if (up) {
+		up = &userName;
+		
+		login(*up);
+	}
+
+
+
+	/*cout << "To start things we need some info from you." << endl;
 	cout << "\nPlease enter your first name:";
 	cin >> fname;
 	cout << "\nNow lets have your last name.";
@@ -27,10 +45,9 @@ int main() {
 	cin >> age;
 	cout << "\nPlease create a user name:";
 	cin >> userName;
-	fullName = fname + " " + lname;
-	cout << "\nSo your name is " << fullName << " and your age is " << age << ".";
+	cout << "\nSo your age is " << age << ".";
 	cout << "\nYour user name is " << userName << ".";
-	cout << "\n";
+	cout << "\n";*/
 
 
 
@@ -43,6 +60,8 @@ int main() {
 
 	return 0;
 }
+
+
 
 void showMenu() {
 

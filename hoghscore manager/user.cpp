@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
 
+// custom headers
+#include "FileIO.h"
+#include "user.h"
+
 using namespace std;
 
 // Class
@@ -10,21 +14,21 @@ class User
 	struct userName {
 		
 		private:
-			string	userName;
+			string user;
 		
 		public:
 			//set
 			void setUserName(string newUserName) {
-				userName = newUserName;
+				user = newUserName;
 			}
 
 			//get
 			string getUserName() {
-				return userName;
+				return user;
 			}
 	};
 
-	//Structure for user information (age)
+	//Structure for user information
 	struct userInfo {
 		private:
 			string	firstName,
@@ -66,42 +70,46 @@ class User
 
 	};		
 		
-	public:
-		//constructor
-		User(userName, userInfo) {};
-
-	//class method prototypes
-	bool login();
-	bool checkUserExist();
-	void updateUserList();
-	void deleteUser();
+	//constructor
+	User(userName newUser, userInfo newInfo) {};
 };
 
 //METHODS
 //login a unique user
-bool User::login() {
-		
+bool login(string *up) {
+	
+	//check if the user exists
+	checkUserExist(*up);
+
 	//check if the userName is registered
-	if (!userName::getUserName) {
+	if (!checkUserExist(*up)) {
+
+		cout << "You've failed to login!" << endl;
+
 		return false;
 	}
 	else {
+
+		cout << "You've successfully logged in!" << endl;
 		return true;
 	}
 }
 
 //check if the user exists
-bool User::checkUserExist() {
+bool checkUserExist(string *up) {
 	//read from the users.txt and store the information
+	string readUserName = readUserFile();
+	
+	//for each of the strings, end at a space
 
-	//
+		
 }
 
 //update the user list
-void User::updateUserList() {
+void updateUserList(string *up) {
 	
 	//confirm the user is logged in
-	if (!User::login) {
+	if () {
 
 
 
@@ -109,16 +117,16 @@ void User::updateUserList() {
 	}
 	else {
 		//log the user in
-		User::login;
+		login(up);
 	}
 
 }
 
 //option for user to delete info
-void User::deleteUser() {
+void deleteUser(string *up) {
 
 	//confirm the user is logged in
-	if (!User::login) {
+	if () {
 
 
 
@@ -126,7 +134,7 @@ void User::deleteUser() {
 	}
 	else {
 		//log the user in
-		User::login;
+		login;
 	}
 }
 

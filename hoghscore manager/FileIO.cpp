@@ -1,6 +1,10 @@
-#include<iostream>
-#include<fstream>
-#include<string>
+#include <iostream>
+#include <fstream>
+#include <string>
+
+// custom headers
+#include "user.h"
+#include "FileIO.h"
 
 using namespace std;
 
@@ -78,11 +82,10 @@ void writeUserFile()
 	{
 		cout << "unable to open file";
 	}
-	
-
-
 }
-void readUserFile()
+
+//read from file and return a string
+string readUserFile()
 {
 	ifstream userFileRead("users.txt");
 	if (userFileRead.is_open())
@@ -91,7 +94,7 @@ void readUserFile()
 		string fileContent;
 		while (userFileRead >> fileContent)
 		{
-			cout << fileContent << endl;
+			return fileContent;
 		}
 		userFileRead.close();
 
@@ -100,4 +103,5 @@ void readUserFile()
 	{
 		cout << "unable to open file";
 	}
+	return false;
 }
