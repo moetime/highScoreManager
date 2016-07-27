@@ -10,128 +10,128 @@ using namespace std;
 // Class
 class User
 {
-	//Structure for the users full name
-	struct userName {
-		
-		private:
-			string user;
-		
-		public:
-			//set
-			void setUserName(string newUserName) {
-				user = newUserName;
-			}
-
-			//get
-			string getUserName() {
-				return user;
-			}
-	};
-
 	//Structure for user information
-	struct userInfo {
-		private:
-			string	firstName,
+	private:
+		struct userInfo {
+			string	username,
+					firstName,
 					lastName;
-			int age, 
-				highscore;
+			int		age;
+		};
 
-		//set the age, first & last names for the user
-		public:
-			//set
-			void setFirstName(string newFirstName) {
-				firstName = newFirstName;	//firstName
-			};
+		userInfo currentUser;
+			
+	//set the age, first & last names for the user
+	public:
+		//set
+		void setUserName(string newUserName) {
+			currentUser.username = newUserName;
+		}
+		void setFirstName(string newFirstName) {
+			currentUser.firstName = newFirstName;	//firstName
+		};
 
-			void setLastName(string newLastName) {
-				lastName = newLastName;		//lastName
-			};
+		void setLastName(string newLastName) {
+			currentUser.lastName = newLastName;		//lastName
+		};
 
-			void setAge(int newAge) {		//age
-				age = newAge;
-			};
+		void setAge(int newAge) {		//age
+			currentUser.age = newAge;
+		};
 
-			void setHighscore(int newHighScore) {
-				highscore = newHighScore;	//highscore
-			};
+		//void setHighscore(int newHighScore) {
+		//	currentUser.highscore = newHighScore;	//highscore
+		//};
 
-			//get
-			string getFullName() {			//fullname
-				return firstName + " " + lastName;
-			}
+		//get
+		string getFullName() {			//fullname
+			return currentUser.firstName + " " + currentUser.lastName;
+		}
 
-			int getAge() {					//age
-				return age;
-			};
+		int getAge() {					//age
+			return currentUser.age;
+		};
 
-			int getHighScore() {			//highscore
-				return highscore;
-			}
+		//int getHighScore() {			//highscore
+		//	return highscore;
+		//}
+		string getUserName() {
+			return currentUser.username;
+		}
 
-	};		
-		
-	//constructor
-	User(userName newUser, userInfo newInfo) {};
-};
+		//constructor
+		//User() {};
+};		
+	
 
 //METHODS
 //login a unique user
-bool login(string &up) {
+void login(string newLogin) {
 	
 	//check if the userName is registered
-	if (!checkUserExist(&up)) {
+	if (!checkUserExist(newLogin)) {
 
 		cout << "You've failed to login!" << endl;
 
-		return false;
+		//return false;
 	}
 	else {
 
 		cout << "You've successfully logged in!" << endl;
-		return true;
+		//return true;
 	}
 }
 
 //check if the user exists
-bool checkUserExist(string &up) {
+bool checkUserExist(string username) {
 	//read from the users.txt and store the information
-	
-	
+
+	string readFileString = "mduarte marco duarte 31 ";
+	string delimiter = " ";
+	string user = readFileString.substr(0, readFileString.find(delimiter)); // token is "mduarte"
+	string userFName = readFileString.substr(8, readFileString.find(delimiter)); // token is "marco"
+	string userLName = readFileString.substr(13, readFileString.find(delimiter)); // token is "duarte"
+	string age = readFileString.substr(21, readFileString.find(delimiter)); // token is "31"	
+
 	//for each of the strings, end at a space
 
-		
+	cout << "User Name " << user << endl;
+	cout << "User First Name " << userFName << endl;
+	cout << "User Last Name " << userLName << endl;
+	cout << "User Age " << age << endl;
+	return false;
 }
 
 //update the user list
-void updateUserList(string &up) {
+void updateUserList() {
 	
 	//confirm the user is logged in
-	if () {
+	//if () {
 
 
 
 
-	}
-	else {
+	//}
+	//else {
 		//log the user in
-		login(&up);
-	}
+		//login();
+	//}
 
 }
 
 //option for user to delete info
-void deleteUser(string &up) {
+void deleteUser() {
 
 	//confirm the user is logged in
-	if () {
+	//if () {
 
 
 
 
-	}
-	else {
+	//}
+	//else {
 		//log the user in
-		login;
-	}
+		//login;
+	//}
 }
 

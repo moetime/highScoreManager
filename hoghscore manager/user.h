@@ -1,7 +1,8 @@
 #pragma once
 
+
 //class method prototypes
-bool login(string &up);
-bool checkUserExist(string &up);
-void updateUserList(string &up);
-void deleteUser(string &up);
+void login(std::string);
+bool checkUserExist(std::string);
+void updateUserList();
+void deleteUser();

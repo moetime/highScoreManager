@@ -15,8 +15,7 @@ int main() {
 	string fname;
 	string lname;
 	string userName;
-	string *up;
-	
+
 	int age;
 	int userInput;
 	int Score;
@@ -28,11 +27,10 @@ int main() {
 	cout << "Please login" << endl;
 
 	cin >> userName;
-	if (up) {
-		up = &userName;
-		
-		login(*up);
-	}
+
+		login(userName);
+		//login(userName);
+
 
 
 
