@@ -60,15 +60,24 @@ void writeFileHighScore()
 
 
 }
+bool checkUserExists(string username) {
+	//loop through the file
+	//if the line that we read's username == username
+	//return true
 
-void writeUserFile()
+	//done loop
+	//return false
+}
+void writeUserFile(string getUserName(), string getFullName(), int getAge()) //passing user info by calling the methods on user.cpp
 {
 	ofstream userFileWrite("users.txt");
 	if (userFileWrite.is_open())
 	{
-		
-		userFileWrite << "nsiu" << endl;
-		userFileWrite << "iavery" << endl;
+
+		userFileWrite << getUserName() << " " << getFullName() << " " << getAge() << endl;
+
+		//hard coded values used for testing *ignore them*
+		/*userFileWrite << "iavery" << endl;
 		userFileWrite << "mduarte" << endl;
 		userFileWrite << "morrice" << endl;
 		userFileWrite << "d0ng" << endl;
@@ -76,7 +85,7 @@ void writeUserFile()
 		userFileWrite << "hello" << endl;
 		userFileWrite << "poop101" << endl;
 		userFileWrite << "butts" << endl;
-		userFileWrite << "mikehawk" << endl;
+		userFileWrite << "mikehawk" << endl;*/
 	}
 	else
 	{
@@ -103,4 +112,3 @@ void readUserFile()
 	{
 		cout << "unable to open file";
 	}
-}
