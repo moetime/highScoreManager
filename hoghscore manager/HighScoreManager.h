@@ -15,7 +15,9 @@ public:
 	~HighScoreManager();
 	void createHighScore(std::string, int);
 	void updateHighScore(std::string, int);
+	void saveHighScore(std::string, int);
 	void printHighScore();
+
 };
 
 
