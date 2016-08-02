@@ -5,6 +5,7 @@
 // custom headers
 #include "user.h"
 #include "FileIO.h"
+#include "user.cpp"
 
 using namespace std;
 
@@ -93,14 +94,16 @@ void writeUserFile(string userName, string fullName, int age) //passing user inf
 //read from file and return a string
 void readUserFile()
 {
-	ifstream userFileRead("users.txt");
+	std::ifstream userFileRead("users.txt");
+	string fileLine;
 	if (userFileRead.is_open())
-	{
-	
-		string fileContent;
-		while (userFileRead >> fileContent)
+	{	
+		User tempUser;
+		
+		while (std::getline(userFileRead, fileLine))
 		{
-			cout << fileContent << endl;
+			cout << fileLine <<endl;
+
 		}
 		userFileRead.close();
 
