@@ -11,8 +11,12 @@ using namespace std;
 User::User()
 { }
 
-User::User(User::userInfo) {
-
+User::User(string username, string firstName, string lastName, int age) {
+	
+	setUserName(username);
+	setFirstName(firstName);
+	setLastName(lastName);
+	setAge(age);
 }
 
 //DECONSTRUCTOR
@@ -38,6 +42,8 @@ void login(string newLogin) {
 
 //check if the user exists
 bool checkUserExist(string username) {
+	//store a local User
+		
 	//read from the users.txt and store the information
 	
 	

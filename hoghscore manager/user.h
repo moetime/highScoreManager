@@ -47,7 +47,7 @@ class User
 		}
 
 		User();
-		User(userInfo);
+		User(string, string, string, int);
 		~User();
 			
 };
