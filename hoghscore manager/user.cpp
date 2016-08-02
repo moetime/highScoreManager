@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <iostream>
 
 // custom headers
 #include "FileIO.h"
@@ -83,22 +84,32 @@ void login(string newLogin) {
 }
 
 //check if the user exists
-bool checkUserExist(string username) {
-	//read from the users.txt and store the information
+bool checkUserExists(string username) {
+	//loop through the file
+	//if the line that we read's username == username
+	//return true
+	//done loop
+	ifstream userFileRead("users.txt");
+	if (userFileRead.is_open())
+	{
+		string tempString;
 
-	string readFileString = "mduarte marco duarte 31 ";
-	string delimiter = " ";
-	string user = readFileString.substr(0, readFileString.find(delimiter)); // token is "mduarte"
-	string userFName = readFileString.substr(8, readFileString.find(delimiter)); // token is "marco"
-	string userLName = readFileString.substr(13, readFileString.find(delimiter)); // token is "duarte"
-	string age = readFileString.substr(21, readFileString.find(delimiter)); // token is "31"	
+		while (!userFileRead.eof())
+		{
+			getline(userFileRead, tempString);
+			if (tempString.find(username) < tempString.length())
+			{
+				return true;
+			}
 
-	//for each of the strings, end at a space
-
-	cout << "User Name " << user << endl;
-	cout << "User First Name " << userFName << endl;
-	cout << "User Last Name " << userLName << endl;
-	cout << "User Age " << age << endl;
+		}
+		//return false
+		return false;
+	}
+	else
+	{
+		cout << "unable to open file";
+	}
 	return false;
 }
 
