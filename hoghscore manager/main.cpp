@@ -128,14 +128,14 @@ void ControlSubMenu() {
 			switch (choice)  // branch to an appropriate selection
 			{
 			case 1:
-				cout << "\nOption #1 was selected. distance english to metric. \n";
+				cout << "\nOption #1 was selected. \n";
 				cout << "\nPress <Enter> key to continue ... ";
 				//fflush(stdin);
 				cin.get();
 				cin.get();
 				break;
 			case 2:
-				cout << "\nOption #1 was selected. distance metric to english. \n";
+				cout << "\nOption #2 was selected. \n";
 				cout << "\nPress <Enter> key to continue ... ";
 				fflush(stdin);
 				cin.get();
@@ -143,7 +143,7 @@ void ControlSubMenu() {
 				break;
 
 			case 3:
-				cout << "\nOption #2 was selected. weight english to metric. \n";
+				cout << "\nOption #3 was selected. \n";
 				cout << "\nPress <Enter> key to continue ... ";
 				fflush(stdin);
 				cin.get();
