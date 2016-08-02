@@ -42,50 +42,19 @@ void login(string newLogin) {
 
 //check if the user exists
 bool checkUserExist(string username) {
-	//store a local User
-		
-	//read from the users.txt and store the information
 	
-	
-	//for each of the strings, end at a space
-
-	/*cout << "User Name " << user << endl;
-	cout << "User First Name " << userFName << endl;
-	cout << "User Last Name " << userLName << endl;
-	cout << "User Age " << age << endl;*/
 	return false;
 }
 
 //update the user list
 void updateUserList() {
 	
-	//confirm the user is logged in
-	//if () {
-
-
-
-
-	//}
-	//else {
-		//log the user in
-		//login();
-	//}
-
+	
 }
 
 //option for user to delete info
 void deleteUser() {
 
-	//confirm the user is logged in
-	//if () {
-
-
-
-
-	//}
-	//else {
-		//log the user in
-		//login;
-	//}
+	
 }
 
