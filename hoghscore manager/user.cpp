@@ -5,66 +5,20 @@
 #include "FileIO.h"
 #include "user.h"
 
-using namespace std;
+using namespace std;	
 
-// Class
-class User
-{
-	//Structure for user information
-	private:
-		struct userInfo {
-			string	username,
-					firstName,
-					lastName;
-			int		age;
-		};
+//CONSTRUCTORS
+User::User()
+{ }
 
-		userInfo currentUser;
-			
-	//set the age, first & last names for the user
-	public:
-		//set
-		void setUserName(string newUserName) {
-			currentUser.username = newUserName;
-		}
-		void setFirstName(string newFirstName) {
-			currentUser.firstName = newFirstName;	//firstName
-		};
+User::User(User::userInfo) {
 
-		void setLastName(string newLastName) {
-			currentUser.lastName = newLastName;		//lastName
-		};
+}
 
-		void setAge(int newAge) {		//age
-			currentUser.age = newAge;
-		};
+//DECONSTRUCTOR
+User::~User() 
+{ }
 
-		//void setHighscore(int newHighScore) {
-		//	currentUser.highscore = newHighScore;	//highscore
-		//};
-
-		//get
-		string getFullName() {			//fullname
-			return currentUser.firstName + " " + currentUser.lastName;
-		}
-
-		int getAge() {					//age
-			return currentUser.age;
-		};
-
-		//int getHighScore() {			//highscore
-		//	return highscore;
-		//}
-		string getUserName() {
-			return currentUser.username;
-		}
-
-		//constructor
-		//User() {};
-};		
-	
-
-//METHODS
 //login a unique user
 void login(string newLogin) {
 	
@@ -85,20 +39,14 @@ void login(string newLogin) {
 //check if the user exists
 bool checkUserExist(string username) {
 	//read from the users.txt and store the information
-
-	string readFileString = "mduarte marco duarte 31 ";
-	string delimiter = " ";
-	string user = readFileString.substr(0, readFileString.find(delimiter)); // token is "mduarte"
-	string userFName = readFileString.substr(8, readFileString.find(delimiter)); // token is "marco"
-	string userLName = readFileString.substr(13, readFileString.find(delimiter)); // token is "duarte"
-	string age = readFileString.substr(21, readFileString.find(delimiter)); // token is "31"	
-
+	
+	
 	//for each of the strings, end at a space
 
-	cout << "User Name " << user << endl;
+	/*cout << "User Name " << user << endl;
 	cout << "User First Name " << userFName << endl;
 	cout << "User Last Name " << userLName << endl;
-	cout << "User Age " << age << endl;
+	cout << "User Age " << age << endl;*/
 	return false;
 }
 
