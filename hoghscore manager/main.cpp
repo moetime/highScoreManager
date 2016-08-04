@@ -1,80 +1,76 @@
-
 #include <iostream>
+#include <stdlib.h>
+#include <string>
+
+//custom header
+#include "FileIO.h"
+#include "user.h"
+
 using namespace std;
 
 int ShowMenu();
 void ControlSubMenu();
+void mainMenu();
 int ShowSubMenu();
-
+string userName;
+string newUserName;
+string fName;
+string lName;
+string fullName;
+string editName;
+int age;
+int choice = 1;
+int highScore;
 
 int main()
 {
-	int choice = 1;
-
+	
+	
 	// end if user picks 4 or with invalid entry, continue program otherwise
-	while (choice != 5)
+	cout << "Enter your username:";
+	cin >> userName;
+	login(userName);
+
+	if(checkUserExist(userName))
 	{
-		do {
-			if (choice > 5 || choice <= 0)
-			{
-				cout << "\We don't have that option. Please select again. \n";
-				cout << "\nPress <Enter> key to continue ... ";
-				fflush(stdin);
-				cin.get();
-				cin.get();
-			}
+		mainMenu();
+	}
+	else
+	{
+		cout << "no user exists, create a new user by entering the following information" << endl;
+		cout << "Enter your desired username:" <<endl;
+		cin >> newUserName;
+		cout << "Enter your first name:" << endl;
+		cin >> fName;
+		cout << "Enter your last name" << endl;
+		cin >> lName;
+		cout << "Enter your age" << endl;
+		cin >> age;
+		fullName = fName + " " + lName;
 
-			choice = ShowMenu();
+		writeUserFile(newUserName,fullName,age);
+		cout << "Please log in with your new user name" << endl;
 
-		} while (choice < 0 || choice > 5);
+		cin >> userName;
+		login(userName);
 
-
-		if (choice != 5)
-			switch (choice)  // branch to an appropriate selection
-			{
-			case 1:
-				cout << "\nOption #1 was selected. Set the high score. \n";
-				cout << "\nPress <Enter> key to continue ... ";
-				//fflush(stdin);
-				cin.get();
-				cin.get();
-				break;
-			case 2:
-				cout << "\nOption #2 was selected. Show the high score. \n";
-				cout << "\nPress <Enter> key to continue ... ";
-				fflush(stdin);
-				cin.get();
-				cin.get();
-				break;
-
-			case 3:
-				cout << "\nOption #3 was selected. Update user.\n";
-				cout << "\nPress <Enter> key to continue ... ";
-				fflush(stdin);
-				cin.get();
-				cin.get();
-				ControlSubMenu();
-				break;
-			case 4:
-				cout << "\nOption #4 was selected. Delete user. \n";
-				cout << "\nPress <Enter> key to continue ... ";
-				fflush(stdin);
-				cin.get();
-				cin.get();
-				break;
-
-			}
-		else //choice 9 was selected
+		if (checkUserExist(userName))
 		{
-			cout << "\nprogram is over. Thanks for using.\n";
-			cout << "\nPress <Enter> key to end the program. ";
+			mainMenu();
 		}
-
-
-	} // end of while 
-	fflush(stdin);
-	cin.get();
-	return 0;
+		else
+		{
+			do
+			{
+				cout << "Incorrect username please enter it again:" << endl;
+				cin >> userName;
+			}while(!checkUserExist(userName));
+			mainMenu();
+		}
+		cin.get();
+		cin.get();
+	}
+	
 } // end of main
 
 int ShowMenu()
@@ -82,7 +78,7 @@ int ShowMenu()
 	int choice;
 	system("cls");
 	cout << "  	M E N U\n";
-	cout << "  	= = = = = = = =\n";
+	cout << "= = = = = = = =\n";
 	cout << "  1  Set score:\n";
 	cout << "  2  Show High Score:\n";
 	cout << "  3  Update User:\n";
@@ -129,6 +125,9 @@ void ControlSubMenu() {
 			{
 			case 1:
 				cout << "\nOption #1 was selected. \n";
+				cout << "please enter desired first name" << endl;
+				cin >> editName;
+				updateUserInfo(userName,editName);
 				cout << "\nPress <Enter> key to continue ... ";
 				//fflush(stdin);
 				cin.get();
@@ -159,9 +158,9 @@ void ControlSubMenu() {
 
 	} // end of while 
 
-
-
 }
+
+
 
 int ShowSubMenu() {
 	int choice;
@@ -183,5 +182,76 @@ int ShowSubMenu() {
 		fflush(stdin);
 	}
 	return choice;
+}
+void mainMenu()
+{
+	while (choice != 5)
+	{
+		do {
+			if (choice > 5 || choice <= 0)
+			{
+				cout << "\We don't have that option. Please select again. \n";
+				cout << "\nPress <Enter> key to continue ... ";
+				fflush(stdin);
+				cin.get();
+				cin.get();
+			}
+
+			choice = ShowMenu();
+
+		} while (choice < 0 || choice > 5);
+
+
+		if (choice != 5)
+			switch (choice)  // branch to an appropriate selection
+			{
+			case 1:
+				cout << "\nOption #1 was selected. Set the high score. \n";
+				cout << "Enter your highscore:" << endl;
+				cin >> highScore;
+				writeFileHighScore(userName, highScore);
+				cout << "\nPress <Enter> key to continue ... ";
+				//fflush(stdin);
+				cin.get();
+				cin.get();
+				break;
+			case 2:
+				cout << "\nOption #2 was selected. Show the high score. \n";
+				readFileHighScore();
+				cout << "\nPress <Enter> key to continue ... ";
+				fflush(stdin);
+				cin.get();
+				cin.get();
+				break;
+
+			case 3:
+				cout << "\nOption #3 was selected. Update user.\n";
+				cout << "\nPress <Enter> key to continue ... ";
+				fflush(stdin);
+				cin.get();
+				cin.get();
+				ControlSubMenu();
+				break;
+			case 4:
+				cout << "\nOption #4 was selected. Delete user. \n";
+				deleteUser(userName);
+				cout << "\nPress <Enter> key to continue ... ";
+				fflush(stdin);
+				cin.get();
+				cin.get();
+				break;
+
+			}
+		else //choice 9 was selected
+		{
+			cout << "\nprogram is over. Thanks for using.\n";
+			cout << "\nPress <Enter> key to end the program. ";
+		}
+
+
+	} // end of while 
+	fflush(stdin);
+	cin.get();
+	
 }
 

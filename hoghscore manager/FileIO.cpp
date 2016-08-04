@@ -3,7 +3,6 @@
 #include <string>
 
 // custom headers
-#include "user.h"
 #include "FileIO.h"
 
 using namespace std;
@@ -14,11 +13,12 @@ void readFileHighScore()
 	ifstream highScoreRead("highscore.txt");
 	if (highScoreRead.is_open())
 	{
-
-		string fileContent;
-		while (highScoreRead >> fileContent)
+		
+		string userName;
+		int score;
+		while (highScoreRead >> userName >> score)
 		{
-			cout << fileContent << endl;
+			cout << userName<<" "<<score << endl;
 		}
 		highScoreRead.close();
 
@@ -33,22 +33,13 @@ void readFileHighScore()
 
 }
 
-void writeFileHighScore()
+void writeFileHighScore(string userName, int highScore)
 {
-	ofstream highScoreWrite("highscore.txt");
+	ofstream highScoreWrite("highscore.txt", std::ios_base::app);
 	if (highScoreWrite.is_open())
 	{
 
-		highScoreWrite << "1. 10000\n";
-		highScoreWrite << "2. 9000\n";
-		highScoreWrite << "3. 8000\n";
-		highScoreWrite << "4. 7000\n";
-		highScoreWrite << "5. 6000\n";
-		highScoreWrite << "6. 5000\n";
-		highScoreWrite << "7. 4000\n";
-		highScoreWrite << "8. 3000\n";
-		highScoreWrite << "9. 2000\n";
-		highScoreWrite << "10.1000\n";
+		highScoreWrite << userName <<" "<< highScore;
 		highScoreWrite.close();
 
 
@@ -70,7 +61,7 @@ void writeUserFile(string userName, string fullName, int age) //passing user inf
 	newFullName = fullName;
 	newAge = age;
 
-	ofstream userFileWrite("users.txt");
+	ofstream userFileWrite("users.txt",std::ios_base::app);
 	if (userFileWrite.is_open())
 	{
 		//write the user name and full name and age into the text file
@@ -85,14 +76,15 @@ void writeUserFile(string userName, string fullName, int age) //passing user inf
 //read from file and return a string
 void readUserFile()
 {
-	ifstream userFileRead("users.txt");
+	std::ifstream userFileRead("users.txt");
+	string fileLine;
 	if (userFileRead.is_open())
-	{
-	
-		string fileContent;
-		while (userFileRead >> fileContent)
+	{	
+		
+		while (std::getline(userFileRead, fileLine))
 		{
-			cout << fileContent << endl;
+			cout << fileLine <<endl;
+
 		}
 		userFileRead.close();
 
