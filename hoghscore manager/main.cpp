@@ -44,10 +44,13 @@ int main()
 		cout << "Enter your age" << endl;
 		cin >> age;
 		fullName = fName + " " + lName;
+
 		writeUserFile(newUserName,fullName,age);
 		cout << "Please log in with your new user name" << endl;
+
 		cin >> userName;
 		login(userName);
+
 		if (checkUserExist(userName))
 		{
 			mainMenu();
@@ -72,7 +75,7 @@ int ShowMenu()
 	int choice;
 	system("cls");
 	cout << "  	M E N U\n";
-	cout << "  	= = = = = = = =\n";
+	cout << "= = = = = = = =\n";
 	cout << "  1  Set score:\n";
 	cout << "  2  Show High Score:\n";
 	cout << "  3  Update User:\n";
@@ -121,7 +124,7 @@ void ControlSubMenu() {
 				cout << "\nOption #1 was selected. \n";
 				cout << "please enter desired first name" << endl;
 				cin >> editName;
-				updateUserName(userName,editName);
+				updateUserInfo(userName,editName);
 				cout << "\nPress <Enter> key to continue ... ";
 				//fflush(stdin);
 				cin.get();
