@@ -17,6 +17,7 @@ string lName;
 string fullName;
 int age;
 int choice = 1;
+int highScore;
 
 int main()
 {
@@ -118,6 +119,7 @@ void ControlSubMenu() {
 			{
 			case 1:
 				cout << "\nOption #1 was selected. \n";
+				
 				cout << "\nPress <Enter> key to continue ... ";
 				//fflush(stdin);
 				cin.get();
@@ -197,6 +199,9 @@ void mainMenu()
 			{
 			case 1:
 				cout << "\nOption #1 was selected. Set the high score. \n";
+				cout << "Enter your highscore:" << endl;
+				cin >> highScore;
+				writeFileHighScore(userName, highScore);
 				cout << "\nPress <Enter> key to continue ... ";
 				//fflush(stdin);
 				cin.get();

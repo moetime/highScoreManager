@@ -13,11 +13,12 @@ void readFileHighScore()
 	ifstream highScoreRead("highscore.txt");
 	if (highScoreRead.is_open())
 	{
-
-		string fileContent;
-		while (highScoreRead >> fileContent)
+		
+		string userName;
+		int score;
+		while (highScoreRead >> userName >> score)
 		{
-			cout << fileContent << endl;
+			cout << userName<<" "<<score << endl;
 		}
 		highScoreRead.close();
 
@@ -32,22 +33,13 @@ void readFileHighScore()
 
 }
 
-void writeFileHighScore()
+void writeFileHighScore(string userName, int highScore)
 {
-	ofstream highScoreWrite("highscore.txt");
+	ofstream highScoreWrite("highscore.txt", std::ios_base::app);
 	if (highScoreWrite.is_open())
 	{
 
-		highScoreWrite << "1. 10000\n";
-		highScoreWrite << "2. 9000\n";
-		highScoreWrite << "3. 8000\n";
-		highScoreWrite << "4. 7000\n";
-		highScoreWrite << "5. 6000\n";
-		highScoreWrite << "6. 5000\n";
-		highScoreWrite << "7. 4000\n";
-		highScoreWrite << "8. 3000\n";
-		highScoreWrite << "9. 2000\n";
-		highScoreWrite << "10.1000\n";
+		highScoreWrite << userName <<" "<< highScore;
 		highScoreWrite.close();
 
 

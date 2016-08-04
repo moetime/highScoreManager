@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 
 // custom headers
 #include "FileIO.h"
@@ -75,17 +76,16 @@ void updateUserList() {
 
 //option for user to delete info
 void deleteUser() {
+	/*string line;
+	int lineNumber = 0;
+	vector<string> users;
+	while (std::getline("users.txt",line))
+	{
 
-	//confirm the user is logged in
-	//if () {
+	}*/
+	
 
 
-
-
-	//}
-	//else {
-		//log the user in
-		//login;
-	//}
+	
 }
 
