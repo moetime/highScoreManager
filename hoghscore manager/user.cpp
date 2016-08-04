@@ -5,6 +5,7 @@
 #include<algorithm>
 #include<iterator>
 
+
 // custom headers
 #include "FileIO.h"
 #include "user.h"
@@ -60,60 +61,58 @@ bool checkUserExist(string username) {
 }
 
 //update the user list
-void updateUserList() {
+void updateUserName(string userName,string editName) {
+
 	
-	//confirm the user is logged in
-	//if () {
-
-
-
-
-	//}
-	//else {
-		//log the user in
-		//login();
-	//}
+	
 
 }
 
 //option for user to delete info
-void deleteUser(string userName) {
+void deleteUser(string userNameParam) {
 	
 	
 	string userNameDelete;
-	string userID;
+	string userName;
 	string fName;
 	string lName;
 	vector<string> usersList;
 	int age;
-	userNameDelete = userName;
+	userNameDelete = userNameParam;
 	//read from the users.txt and store into vector
-	ifstream userFile("users.txt");
+	fstream userFile("users.txt");
 	if (userFile.is_open())
 	{
-		while (userFile >> userID >> fName >> lName >> age)
+		while (userFile >> userName >> fName >> lName >> age)
 		{
-			if (userNameDelete == userID) {
-				copy(istream_iterator<string>(userFile), istream_iterator<string>(), back_inserter(usersList));
+			usersList.erase(usersList.begin(), usersList.end());
 
-				ofstream userFileWrite("users.txt");
-				if (userFileWrite.is_open())
+			//copy text file content into vector
+			copy(istream_iterator<string>(userFile), istream_iterator<string>(), back_inserter(usersList));
+			int vectorIndex = 0;
+
+
+			//loop through the vector to delete the row
+			for (vector<string>::const_iterator i = usersList.begin(); i != usersList.end(); i++)
+			{
+				vectorIndex++;// increment index
+				if (userNameDelete == userName)//if match is found
 				{
-					for (vector<string>::const_iterator i=usersList.begin(); i!=usersList.end(); ++i)
-					{
-						userFileWrite << *i <<endl;
-					}
-					userFileWrite.close();
+					usersList.erase(usersList.begin() + vectorIndex);// remove row based on index
+					
 				}
-				
 
 			}
+
+			ofstream userFileWrite("users.txt");
+			if (userFileWrite.is_open())
+			{
+				// write the updated vector back to users file
+				ostream_iterator<string> output_interator(userFileWrite, "\n");
+				copy(usersList.begin(), usersList.end(), output_interator);
+				userFileWrite.close();
+			}	
 		}
-
 	}
-	
-
-
-	
 }
 

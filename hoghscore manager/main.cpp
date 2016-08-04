@@ -7,7 +7,6 @@ using namespace std;
 
 int ShowMenu();
 void ControlSubMenu();
-void userPrompt();
 void mainMenu();
 int ShowSubMenu();
 string userName;
@@ -15,6 +14,7 @@ string newUserName;
 string fName;
 string lName;
 string fullName;
+string editName;
 int age;
 int choice = 1;
 int highScore;
@@ -119,7 +119,9 @@ void ControlSubMenu() {
 			{
 			case 1:
 				cout << "\nOption #1 was selected. \n";
-				
+				cout << "please enter desired first name" << endl;
+				cin >> editName;
+				updateUserName(userName,editName);
 				cout << "\nPress <Enter> key to continue ... ";
 				//fflush(stdin);
 				cin.get();
