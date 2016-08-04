@@ -25,25 +25,6 @@ User::User(string username, string firstName, string lastName, int age) {
 User::~User()
 { }
 
-//login a unique user
-bool login(string newLogin) {
-
-	//check if the userName is registered
-	if (!checkUserExist(newLogin)) {
-
-		cout << "You've failed to login!" << endl;
-
-		return false;
-	}
-	else {
-
-		cout << "You've successfully logged in!" << endl;
-		return true;
-	}
-}
-
-	
-
 //METHODS
 //login a unique user
 bool login(string newLogin) {
@@ -60,12 +41,6 @@ bool login(string newLogin) {
 		cout << "You've successfully logged in!" << endl;
 		return true;
 	}
-}
-
-//check if the user exists
-bool checkUserExist(string username) {
-
-	return false;
 }
 
 //check if the user exists
