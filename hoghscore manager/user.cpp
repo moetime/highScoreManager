@@ -37,7 +37,7 @@ bool checkUserExist(string username) {
 	string fName;
 	string lName;
 	int age;
-	//userNameCheck = username;
+
 	//read from the users.txt and store the information
 	fstream userFile("users.txt");
 	while (userFile >> userName >> fName >> lName >> age)
