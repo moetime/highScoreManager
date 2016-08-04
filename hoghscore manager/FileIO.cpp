@@ -60,15 +60,7 @@ void writeFileHighScore()
 
 
 }
-bool checkUserExists(string username) {
-	//loop through the file
-	//if the line that we read's username == username
-	//return true
 
-	//done loop
-	//return false
-	return false;
-}
 void writeUserFile(string userName, string fullName, int age) //passing user info by calling the methods on user.cpp
 {
 	//local values 

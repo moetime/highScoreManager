@@ -1,4 +1,5 @@
 #pragma once
+
 using namespace std;
 void writeFileHighScore();
 void readFileHighScore();
