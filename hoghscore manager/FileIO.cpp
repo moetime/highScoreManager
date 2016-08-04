@@ -3,9 +3,7 @@
 #include <string>
 
 // custom headers
-#include "user.h"
 #include "FileIO.h"
-#include "user.cpp"
 
 using namespace std;
 
@@ -61,15 +59,7 @@ void writeFileHighScore()
 
 
 }
-bool checkUserExists(string username) {
-	//loop through the file
-	//if the line that we read's username == username
-	//return true
 
-	//done loop
-	//return false
-	return false;
-}
 void writeUserFile(string userName, string fullName, int age) //passing user info by calling the methods on user.cpp
 {
 	//local values 
@@ -79,7 +69,7 @@ void writeUserFile(string userName, string fullName, int age) //passing user inf
 	newFullName = fullName;
 	newAge = age;
 
-	ofstream userFileWrite("users.txt");
+	ofstream userFileWrite("users.txt",std::ios_base::app);
 	if (userFileWrite.is_open())
 	{
 		//write the user name and full name and age into the text file
@@ -98,7 +88,6 @@ void readUserFile()
 	string fileLine;
 	if (userFileRead.is_open())
 	{	
-		User tempUser;
 		
 		while (std::getline(userFileRead, fileLine))
 		{

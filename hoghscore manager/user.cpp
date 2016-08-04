@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 // custom headers
 #include "FileIO.h"
@@ -8,72 +9,7 @@
 using namespace std;	
 
 
-// Class
-class User
-{
-	//Structure for user information
-private:
-	struct userInfo {
-		string	username,
-			firstName,
-			lastName;
-		int		age;
-	};
 
-	userInfo currentUser;
-
-	//set the age, first & last names for the user
-public:
-	//set
-	void setUserName(string newUserName) {
-		currentUser.username = newUserName;		//username
-	}
-	void setFirstName(string newFirstName) {
-		currentUser.firstName = newFirstName;	//firstName
-	};
-
-	void setLastName(string newLastName) {
-		currentUser.lastName = newLastName;		//lastName
-	};
-
-	void setAge(int newAge) {					//age
-		currentUser.age = newAge;
-	};
-
-	//get
-	string getFullName() {						//fullname
-		return currentUser.firstName +
-			" " + currentUser.lastName;
-	}
-
-	int getAge() {								//age
-		return currentUser.age;
-	};
-
-	string getUserName() {
-		return currentUser.username;
-	}
-
-	User();
-	User(string, string, string, int);
-	~User();
-
-};
-//CONSTRUCTORS
-User::User()
-{ }
-
-User::User(string username, string firstName, string lastName, int age) {
-	
-	setUserName(username);
-	setFirstName(firstName);
-	setLastName(lastName);
-	setAge(age);
-}
-
-//DECONSTRUCTOR
-User::~User() 
-{ }
 
 //login a unique user
 void login(string newLogin) {
@@ -95,9 +31,21 @@ void login(string newLogin) {
 //check if the user exists
 bool checkUserExist(string username) {
 	//store a local User
-		
+	string userNameCheck;
+	string userID;
+	string fName;
+	string lName;
+	int age;
+	userNameCheck = username;
 	//read from the users.txt and store the information
-	
+	ifstream userFile("users.txt");
+	while (userFile >> userID >> fName >> lName >> age)
+	{
+		if (userNameCheck == userID) {
+			return true;
+
+		}
+	}
 	
 	//for each of the strings, end at a space
 
