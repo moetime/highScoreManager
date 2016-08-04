@@ -4,4 +4,4 @@
 void login(std::string);
 bool checkUserExist(std::string);
 void updateUserList();
-void deleteUser();
+void deleteUser(std::string);

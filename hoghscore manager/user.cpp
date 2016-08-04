@@ -2,6 +2,8 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include<algorithm>
+#include<iterator>
 
 // custom headers
 #include "FileIO.h"
@@ -75,14 +77,40 @@ void updateUserList() {
 }
 
 //option for user to delete info
-void deleteUser() {
-	/*string line;
-	int lineNumber = 0;
-	vector<string> users;
-	while (std::getline("users.txt",line))
+void deleteUser(string userName) {
+	
+	
+	string userNameDelete;
+	string userID;
+	string fName;
+	string lName;
+	vector<string> usersList;
+	int age;
+	userNameDelete = userName;
+	//read from the users.txt and store into vector
+	ifstream userFile("users.txt");
+	if (userFile.is_open())
 	{
+		while (userFile >> userID >> fName >> lName >> age)
+		{
+			if (userNameDelete == userID) {
+				copy(istream_iterator<string>(userFile), istream_iterator<string>(), back_inserter(usersList));
 
-	}*/
+				ofstream userFileWrite("users.txt");
+				if (userFileWrite.is_open())
+				{
+					for (vector<string>::const_iterator i=usersList.begin(); i!=usersList.end(); ++i)
+					{
+						userFileWrite << *i <<endl;
+					}
+					userFileWrite.close();
+				}
+				
+
+			}
+		}
+
+	}
 	
 
 

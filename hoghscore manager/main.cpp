@@ -226,6 +226,7 @@ void mainMenu()
 				break;
 			case 4:
 				cout << "\nOption #4 was selected. Delete user. \n";
+				deleteUser(userName);
 				cout << "\nPress <Enter> key to continue ... ";
 				fflush(stdin);
 				cin.get();
