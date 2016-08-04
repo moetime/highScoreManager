@@ -1,49 +1,46 @@
 #pragma once
+#include <string>
+using namespace std;
 
 // Class
 class User
 {
-	//Structure for user information
-	private:
-		struct userInfo {
-			string	username,
-				firstName,
-				lastName;
-			int		age;
-		};
-
-	userInfo currentUser;
+private:
+	string	username;
+	string	firstName;
+	string	lastName;
+	int		age;
 
 	//set the age, first & last names for the user
 	public:
 		//set
 		void setUserName(string newUserName) {
-			currentUser.username = newUserName;		//username
+			username = newUserName;		//username
 		}
 		void setFirstName(string newFirstName) {
-			currentUser.firstName = newFirstName;	//firstName
+			firstName = newFirstName;	//firstName
 		};
 
 		void setLastName(string newLastName) {
-			currentUser.lastName = newLastName;		//lastName
+			lastName = newLastName;		//lastName
 		};
 
 		void setAge(int newAge) {					//age
-			currentUser.age = newAge;
+			age = newAge;
 		};
 
 		//get
 		string getFullName() {						//fullname
-			return currentUser.firstName +
-				" " + currentUser.lastName;
+			return firstName +
+				" " + lastName;
 		}
 
 		int getAge() {								//age
-			return currentUser.age;
+			return age;
 		};
 
 		string getUserName() {
-			return currentUser.username;
+			return username;
 		}
 
 		User();
@@ -51,8 +48,10 @@ class User
 		~User();
 			
 };
+
 //class method prototypes
-bool login(std::string);
-bool checkUserExist(std::string);
-void updateUserList();
+void login(string);
+bool checkUserExist(string);
+void updateUserInfo(string);
 void deleteUser();
+
