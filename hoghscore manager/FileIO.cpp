@@ -88,7 +88,7 @@ void readUserFile()
 	ifstream userFileRead("users.txt");
 	if (userFileRead.is_open())
 	{
-
+	
 		string fileContent;
 		while (userFileRead >> fileContent)
 		{
