@@ -9,22 +9,6 @@
 #include "user.h"
 
 
-//CONSTRUCTORS
-User::User()
-{ }
-
-User::User(string username, string firstName, string lastName, int age) {
-
-	setUserName(username);
-	setFirstName(firstName);
-	setLastName(lastName);
-	setAge(age);
-}
-
-//DECONSTRUCTOR
-User::~User()
-{ }
-
 //METHODS
 //login a unique user
 bool login(string newLogin) {
