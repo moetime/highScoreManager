@@ -50,8 +50,8 @@ private:
 };
 
 //class method prototypes
-void login(string);
+bool login(string);
 bool checkUserExist(string);
-void updateUserInfo(string);
-void deleteUser();
+void updateUserInfo(string, string);
+void deleteUser(string);
 

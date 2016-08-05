@@ -27,19 +27,19 @@ User::~User()
 
 //METHODS
 //login a unique user
-void login(string newLogin) {
+bool login(string newLogin) {
 
 	//check if the userName is registered
 	if (!checkUserExist(newLogin)) {
 
 		cout << "You've failed to login!" << endl;
 
-		//return false;
+		return false;
 	}
 	else {
 
 		cout << "You've successfully logged in!" << endl;
-		//return true;
+		return true;
 	}
 }
 
@@ -65,7 +65,7 @@ bool checkUserExist(string username) {
 }
 
 //update the user list
-void updateUserInfo(string username) {
+void updateUserInfo(string username, string editName) {
 	
 
 }
