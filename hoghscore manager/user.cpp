@@ -70,34 +70,30 @@ void deleteUser(string userNameParam) {
 	while (userFile >> userName >> fName >> lName >> age)
 	{
 		//usersList.erase(usersList.begin(), usersList.end());
-
-		cout << "user " << userName << "fName " << fName << "lName " << lName << "age " << age << endl;
-
-		//copy text file content into vector
-		copy(istream_iterator<string>(userFile), istream_iterator<string>(), back_inserter(usersList));
-
-		int vectorIndex = 0;	//vecotr index iterator
-
-
-								//loop through the vector to delete the row
-		for (vector<string>::const_iterator i = usersList.begin(); i != usersList.end(); i++)
+		if (userName == userNameParam)
 		{
-			vectorIndex++;// increment index
-			if (userNameParam == userName)//if match is found
+			cout << "user " << userName << "fName " << fName << "lName " << lName << "age " << age << endl;
+
+			//copy text file content into vector
+			copy(istream_iterator<string>(userFile), istream_iterator<string>(), back_inserter(usersList));
+
+			int vectorIndex = 0;	//vecotr index iterator
+
+			//loop through the vector to delete the row
+			for (vector<string>::const_iterator i = usersList.begin(); i != usersList.end(); i++)
 			{
-				usersList.erase(usersList.begin() + vectorIndex);// remove row based on index
+				vectorIndex++;// increment index
+				if (userNameParam == userName)//if match is found
+				{
+					usersList.erase(usersList.begin() + vectorIndex);// remove row based on index
+																	 // write the updated vector back to users file
+					ostream_iterator<string> output_interator(userFile, "\n");
+					copy(usersList.begin(), usersList.end(), output_interator);
+					userFile.close();
+				}
 
 			}
-
-		}
-
-		//ofstream userFileWrite("users.txt");
-		if (userFile.is_open())
-		{
-			// write the updated vector back to users file
-			ostream_iterator<string> output_interator(userFile, "\n");
-			copy(usersList.begin(), usersList.end(), output_interator);
-			userFile.close();
+	
 		}
 	}
 }

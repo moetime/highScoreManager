@@ -10,3 +10,6 @@ sushi
 fname
 lname
 22
+tester fname lname 23
+bimbo dees nutz 32
+bob the buldder 23
