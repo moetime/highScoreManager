@@ -72,7 +72,7 @@ void deleteUser(string userNameParam) {
 		//usersList.erase(usersList.begin(), usersList.end());
 		if (userName == userNameParam)
 		{
-			cout << "user " << userName << "fName " << fName << "lName " << lName << "age " << age << endl;
+			cout << "user " << userName << " fName " << fName << " lName " << lName << " age " << age << endl;
 
 			//copy text file content into vector
 			copy(istream_iterator<string>(userFile), istream_iterator<string>(), back_inserter(usersList));
