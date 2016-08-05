@@ -127,7 +127,7 @@ void ControlSubMenu() {
 				cout << "\nOption #1 was selected. \n";
 				cout << "please enter desired first name" << endl;
 				cin >> editName;
-				updateUserInfo(userName,editName);
+				updateUserInfo(userName, editName);
 				cout << "\nPress <Enter> key to continue ... ";
 				//fflush(stdin);
 				cin.get();
