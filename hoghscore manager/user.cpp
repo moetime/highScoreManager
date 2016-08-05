@@ -8,6 +8,8 @@
 #include "FileIO.h"
 #include "user.h"
 
+// holds the index of the username
+int usernameIndex = -1;
 
 //METHODS
 //login a unique user
@@ -38,9 +40,11 @@ bool checkUserExist(string username) {
 	//userNameCheck = username;
 	//read from the users.txt and store the information
 	fstream userFile("users.txt");
+	int indexCounter = 0;
 	while (userFile >> userName >> fName >> lName >> age)
 	{
 		if (username == userName) {
+			usernameIndex = (indexCounter * 4);
 			return true;
 		}
 	}
@@ -57,6 +61,9 @@ void updateUserInfo(string username, string editName) {
 //option for user to delete info
 void deleteUser(string userNameParam) {
 
+	cout << "deleting user: " << usernameIndex << endl;
+
+
 	string userNameDelete;
 	string userName;
 	string fName;
@@ -72,28 +79,46 @@ void deleteUser(string userNameParam) {
 		//usersList.erase(usersList.begin(), usersList.end());
 		if (userName == userNameParam)
 		{
-			cout << "user " << userName << " fName " << fName << " lName " << lName << " age " << age << endl;
 
-			//copy text file content into vector
-			copy(istream_iterator<string>(userFile), istream_iterator<string>(), back_inserter(usersList));
+			// load file into usersList
+			std::string word;
+			std::vector<std::string> file;
 
-			int vectorIndex = 0;	//vecotr index iterator
+			std::ifstream in("users.txt");
 
-			//loop through the vector to delete the row
-			for (vector<string>::const_iterator i = usersList.begin(); i != usersList.end(); i++)
-			{
-				vectorIndex++;// increment index
-				if (userNameParam == userName)//if match is found
-				{
-					usersList.erase(usersList.begin() + vectorIndex);// remove row based on index
-																	 // write the updated vector back to users file
-					ostream_iterator<string> output_interator(userFile, "\n");
-					copy(usersList.begin(), usersList.end(), output_interator);
-					userFile.close();
-				}
+			while (in >> word)
+				usersList.push_back(word);
 
+			in.close();
+
+			// remove unwanted user
+			for (int i = usernameIndex + 3; i >= usernameIndex; i--) {
+				usersList.erase(usersList.begin() + i);
 			}
-	
+
+			// list test confirm user has been removed
+			/*int counter2 = 0;
+			for (auto i = usersList.begin(); i < usersList.end(); i++) {
+				cout << "U: " << usersList[counter2] << endl;
+				counter2++;
+			}*/
+
+			// convert vector to a string
+			string contents;
+			int convertCounter = 0;
+			for (auto i = usersList.begin(); i < usersList.end(); i++) {
+
+				contents += usersList[convertCounter] + '\n';
+
+				convertCounter++;
+			}
+
+			// write the string to the file
+			std::ofstream fs;
+			fs.open("users.txt");
+			fs << contents;
+			fs.close();
+
 		}
 	}
 }
